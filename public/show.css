@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+.detail p {
+    color: #666;
+}
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
