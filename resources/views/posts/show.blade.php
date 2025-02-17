@@ -14,9 +14,9 @@
     <div class="container">
         <h1>記事詳細</h1>
         <div class="detail">
-            <h2>{{ $post }}</h2>
-            <p>ここに詳細な記事内容が表示されます。記事の内容を増やして、より詳細に説明できます。</p>
-        </div>
+            <h2>{{ $post->title }}</h2>
+            <p>{{ $post->body }}</p>
+        </div> 
         <a href={{ route("posts.index") }}>←戻る</a>
     </div>
 

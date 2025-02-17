@@ -30,3 +30,11 @@ h1 {
 .post p {
     color: #666;
 }
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}

@@ -10,11 +10,12 @@
     "{{url("index.css")}}"
 </x-slot>
     <div class="container">
-        <h1>ブログ</h1>
+        <h1>みんなの投稿</h1>
+        <a href={{ route("posts.create") }} class="back">+ 新しい投稿</a>
         @forelse ($posts as $post)
             
         <div class="post">
-            <h2>{{ $post }}</h2>
+            <h2>{{ $post->title }}</h2>
             <div class="post">
             <a href={{ route("posts.show", $post) }}>詳細ページへ</a>
         </div>
