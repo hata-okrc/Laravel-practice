@@ -25,6 +25,11 @@ class PostController extends Controller
     }
 
     public function store(Request $req) {
+        $validated = $req->validate([
+            "title" => ["required", "unique:posts"],
+            "body" => ["required"]
+        ]);
+
         $post = new Post();
         $post->title = $req->title;
         $post->body = $req->body;
@@ -32,6 +37,8 @@ class PostController extends Controller
 
         return redirect()->route("posts.index");
     }
-
+    public function edit(Post $post) {
+        return view("posts.edit")->with(["post"=>$post]);
+    }
 
 }

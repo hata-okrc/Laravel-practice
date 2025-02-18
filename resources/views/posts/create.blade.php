@@ -6,7 +6,7 @@
 </x-slot>
 
 <x-slot:url>
-    "{{url("create.css")}}"
+    "{{url("form.css")}}"
 </x-slot>
 
     <div class="form-container">
@@ -16,11 +16,21 @@
 
             <div class="form-group">
                 <label for="title">タイトル</label>
-                <input type="text" id="title" name="title" name="title">
+                <input type="text" id="title" name="title" name="title" value="{{ old("title") }}">
+                @error("title")
+                    <div class="error">タイトルを入力してください</div>                    
+                @enderror
+
             </div>
             <div class="form-group">
-                <label for="content">本文</label>
-                <textarea id="content"  rows="5" name="body"></textarea>
+                <label for="content">内容</label>
+                <textarea id="content"  rows="5" name="body">
+                    {{ old("body") }}
+                </textarea>
+                @error("body")
+                <div class="error">本文を入力してください</div>    
+                @enderror
+                
             </div>
             <button type="submit">投稿する</button>
         </form>

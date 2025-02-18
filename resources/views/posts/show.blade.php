@@ -12,13 +12,13 @@
     </x-slot>
 
     <div class="container">
-        <h1>記事詳細</h1>
+        <h1>{{ $post->title }}</h1>
         <div class="detail">
-            <h2>{{ $post->title }}</h2>
-            <p>{{ $post->body }}</p>
-        </div> 
+            <p>{!! nl2br(e($post->body)) !!}</p>
+        </div class="back"> 
         <a href={{ route("posts.index") }}>←戻る</a>
+        <b>/</b>
+        <a href={{ route("posts.edit", $post) }}>記事を更新する</a>
     </div>
 
 </x-layout>
-   
