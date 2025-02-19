@@ -17,7 +17,7 @@
     
                 <div class="form-group">
                     <label for="title">タイトル</label>
-                    <input type="text" id="title" name="title" name="title" value="{{ $post->title }}">
+                    <input type="text" id="title" name="title" name="title" value="{{ old("title", $post->title) }}">
                     @error("title")
                         <div class="error">タイトルを入力してください</div>                    
                     @enderror
@@ -26,14 +26,14 @@
                 <div class="form-group">
                     <label for="content">内容</label>
                     <textarea id="content"  rows="5" name="body">
-                        {{ $post->body }}
+                        {{ old("body", $post->body) }}
                     </textarea>
                     @error("body")
                     <div class="error">本文を入力してください</div>    
                     @enderror
                     
                 </div>
-                <button type="submit">投稿する</button>
+                <button type="submit">変更する</button>
             </form>
             <a href={{ route("posts.show", $post) }} class="back">← 戻る</a>
         </div>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use  App\Models\Post;
+use App\Http\Requests\PostRequest;
 
 
 class PostController extends Controller
@@ -24,11 +24,7 @@ class PostController extends Controller
     return view("posts.create"); 
     }
 
-    public function store(Request $req) {
-        $validated = $req->validate([
-            "title" => ["required", "unique:posts"],
-            "body" => ["required"]
-        ]);
+    public function store(PostRequest $req) {
 
         $post = new Post();
         $post->title = $req->title;
@@ -39,6 +35,22 @@ class PostController extends Controller
     }
     public function edit(Post $post) {
         return view("posts.edit")->with(["post"=>$post]);
+    }
+
+    public function update(PostRequest $req, Post $post) {
+
+        $post->title = $req->title;
+        $post->body = $req->body;
+        $post->save();
+
+        return redirect()->route("posts.show", $post);
+    
+    }
+
+    public function destroy(Post $post) {
+        $post->delete();
+
+       return redirect()->route("posts.index");
     }
 
 }
