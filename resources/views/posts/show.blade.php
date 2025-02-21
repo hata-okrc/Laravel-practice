@@ -24,9 +24,18 @@
           <form action={{ route("posts.destroy", $post) }} method="post">
             @method("DELETE")
             @csrf
-            <button>削除する</button>
+            <button date-id="delete-post" onclick="deletePost(this)">削除する</button>
           </form>
         </div>
     </div>
 
+    <script>
+        function deletePost(e) {
+            'use strict'
+            if(confirm("本当に削除しますか？") === false) {
+              return;
+            }
+            document.getElementById("delete-post").submit();
+        }
+    </script>
 </x-layout>
