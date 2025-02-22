@@ -11,12 +11,10 @@
         "{{url("show.css")}}"
     </x-slot>
 
-    <div class="container">
+    <div class="blog-container">
         <h1>{{ $post->title }}</h1>
-        <div class="detail">
-            <p>{!! nl2br(e($post->body)) !!}</p>
-        </div> 
-        <div class="back"> 
+            <p>{!! nl2br(e($post->body)) !!}</p> 
+        
           <a href={{ route("posts.index") }}>←戻る</a>
           <b>/</b>
           <a href={{ route("posts.edit", $post) }}>記事を更新する</a>    
@@ -26,8 +24,22 @@
             @csrf
             <button date-id="delete-post" onclick="deletePost(this)">削除する</button>
           </form>
+        </div>   
+          <div class="comment-section">
+            <h2>コメント</h2>
+            <ul id="comment-list"></ul>
+            @forelse ($post->comments as $comment)
+                <li>{{ $comment->comment }}</li>
+            @empty
+                <li>no comment</li>
+            @endforelse
+
+            <form action={{ route("posts.comments.store", $post) }} method="post">
+                @csrf
+                <textarea id="comment-input" placeholder="コメントを入力してください..." name="comment"></textarea>
+                <button id="submit-comment">送信</button>    
+            </form>
         </div>
-    </div>
 
     <script>
         function deletePost(e) {
