@@ -34,7 +34,7 @@
             </div>
             <button type="submit">投稿する</button>
         </form>
-        <a href={{ route("posts.index") }} class="back">← 戻る</a>
+        <a href={{ route("posts.index") }} class="cp-link">← 戻る</a>
     </div>
 
 </x-layout>
