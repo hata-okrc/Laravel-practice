@@ -17,7 +17,7 @@
         <div class="post">
             <h2>{{ $post->title }}</h2>
             <div class="post">
-            <a href={{ route("posts.show", $post) }}>詳細ページへ</a>
+            <a href={{ route("posts.show", $post) }} class="cp-link">詳細ページへ</a>
         </div>
         </div>
 

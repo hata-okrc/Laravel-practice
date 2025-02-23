@@ -38,3 +38,14 @@ h1 {
     color: #007bff;
     text-decoration: none;
 }
+.cp-link {
+    padding: 5px;
+    transition: all 0.3s;
+    background-color: #f1eceb;
+    border-radius: 12px;
+    text-decoration: none;
+}
+.cp-link:hover {
+    color: black;
+    background-color: #d6bda5;
+}
