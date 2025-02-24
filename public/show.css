@@ -1,4 +1,105 @@
 body {
+    background-color: #333;
+    color: #ddd;
+    font-family: "Pixelify Sans", sans-serif; /* ドット絵風フォント */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+    background-color: #555;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #888;
+    padding-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+}
+nav form {
+    display: inline;
+}
+
+button {
+    background-color: #888;
+    color: #ddd;
+}
+
+main {
+    padding: 20px 0;
+}
+
+article {
+    border: 2px solid #888;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px #888;
+}
+
+.comment {
+    background-color: #444;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    border-top: 2px solid #888;
+    padding-top: 10px;
+}
+
+.form-container {
+    background-color: #555;
+    padding: 20px;
+    border: 2px solid #888;
+    width: 400px;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 0 0 20px #888;
+}
+textarea {
+    width: 100%;
+    padding: 8px;
+    background-color: #444;
+    color: #ddd;
+    border: 1px solid #777;
+}
+
+textarea {
+    height: 100px;
+}
+
+.form-container button {
+    background-color: #666;
+    color: #ddd;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #888;
+}
+
+/* body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 20px;
@@ -89,4 +190,4 @@ form {
     color: red;
     font-size: 0.9em;
     margin-top: 5px;
-}
+} */

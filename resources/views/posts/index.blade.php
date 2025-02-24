@@ -10,21 +10,29 @@
     "{{url("index.css")}}"
 </x-slot>
     <div class="container">
-        <h1>みんなの投稿</h1>
-        <a href={{ route("posts.create") }} class="back">+ 新しい投稿</a>
-        @forelse ($posts as $post)
+        <header>
+            <h1>みんなの投稿</h1>
+            <nav>
+                <ul>
+                   <li><a href={{ route("posts.create") }}>+ 新しい投稿</a></li> 
+                   <li>/</li>
+                   <li><a href={{ route("users.create") }}>ユーザー登録</a></li>  
+                </ul>
+            </nav>
+        </header>
+        <main>
             
-        <div class="post">
-            <h2>{{ $post->title }}</h2>
-            <div class="post">
-            <a href={{ route("posts.show", $post) }} class="cp-link">詳細ページへ</a>
-        </div>
-        </div>
-
+         @forelse ($posts as $post)
+             <article>
+                    <h2>{{ $post->title }}</h2>
+                    <div class="status">
+                     <a href={{ route("posts.show", $post) }} class="cp-link">詳細ページへ</a>
+                    </div>
+            </article> 
         @empty
-        <p>no post</p>
-            
+        <p>no post</p> 
         @endforelse
+        </main>
     </div>
 
 </x-layout>

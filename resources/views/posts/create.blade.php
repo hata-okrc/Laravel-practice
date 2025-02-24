@@ -10,10 +10,9 @@
 </x-slot>
 
     <div class="form-container">
-        <h1>新しい投稿</h1>
+        <h2>新しい投稿</h2>
         <form action={{ route("posts.store") }} method="post">
             @csrf
-
             <div class="form-group">
                 <label for="title">タイトル</label>
                 <input type="text" id="title" name="title" name="title" value="{{ old("title") }}">
