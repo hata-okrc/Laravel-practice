@@ -12,20 +12,34 @@
     <form>
         <div class="form-group">
             <label for="username">ユーザー名</label>
-            <input type="text" id="username" placeholder="プレイヤー名を入力" required>
+            @error("name")
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
+            <input type="text" id="username" name="name" placeholder="ユーザー名を入力" required>
         </div>
+
         <div class="form-group">
             <label for="email">メールアドレス</label>
-            <input type="email" id="email" placeholder="メールアドレスを入力" required>
+            @error("email")
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
+            <input type="email" id="email" name="email" placeholder="メールアドレスを入力" required>
         </div>
         
         <div class="form-group">
             <label for="password">パスワード</label>
-            <input type="password" id="password" placeholder="パスワードを入力" required>
+            @error("password")
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
+            <input type="password" id="password" name="password" placeholder="パスワードを入力" required>
         </div>
 
         <button type="submit" class="register-button">登録</button>
     </form>
+
+        <a href={{ route("posts.index") }} class="cp-link">←戻る</a>
+    
+    
 </div>
 
 </x-layout>

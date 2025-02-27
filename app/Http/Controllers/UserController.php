@@ -1,8 +1,17 @@
 <?php
-
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\UserRequest;
+
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+
 
 class UserController extends Controller
 {
@@ -10,17 +19,17 @@ class UserController extends Controller
         return view("users.user_create");
     }
 
-    public function store(Request $req) {
-        $req->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
+    public function register(UserRequest $req) {
         $user = new User();
         $user->name = $req->name;
         $user->email = $req->email;
         $user->password = Hash::make($req->password);
         $user->save();
+
+        // event(new Registerd($user));
+
+        Auth::login($user);
+
+        return redirect()->route("posts.index");
     }
-}
+} 

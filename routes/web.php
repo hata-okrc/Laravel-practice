@@ -7,4 +7,6 @@ use App\Http\Controllers\UserController;
 
 Route::resource('posts', PostController::class);
 Route::resource('posts.comments', CommentController::class)->only(["destroy", "store"]);
-Route::resource('users', UserController::class);
+
+Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('users/register', [UerController::class, 'register'])->name("users.register");
