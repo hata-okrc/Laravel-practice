@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 
 use App\Http\Requests\UserRequest;
@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 
-class UserController extends Controller
+class RegisterController extends Controller
 {
-    public function create() {
-        return view("users.user_create");
+    public function showRegisterPage() {
+        return view("users.register");
     }
 
     public function register(UserRequest $req) {
@@ -32,4 +32,6 @@ class UserController extends Controller
 
         return redirect()->route("posts.index");
     }
+
+
 } 

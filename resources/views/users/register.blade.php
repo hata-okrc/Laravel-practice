@@ -9,7 +9,7 @@
 
 <div class="form-container">
     <h2>🎮 ユーザー登録 🎮</h2>
-    <form>
+    <form action={{ route("register") }}>
         <div class="form-group">
             <label for="username">ユーザー名</label>
             @error("name")
