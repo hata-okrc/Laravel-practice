@@ -9,7 +9,8 @@
 
 <div class="form-container">
     <h2>🎮 ユーザー登録 🎮</h2>
-    <form action={{ route("register") }}>
+    <form action={{ route("register") }} method="post">
+        @csrf
         <div class="form-group">
             <label for="username">ユーザー名</label>
             @error("name")

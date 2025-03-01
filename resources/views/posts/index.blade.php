@@ -16,7 +16,9 @@
                 <ul>
                    <li><a href={{ route("posts.create") }}>+ 新しい投稿</a></li> 
                    <li>/</li>
-                   <li><a href={{ route("showRegisterPage") }}>ユーザー登録</a></li>  
+                   <li><a href={{ route("showRegisterForm") }}>ユーザー登録</a></li>  
+                   <li>/</li>
+                   <li><a href={{ route("showLoginForm") }}>ログイン</a></li>  
                 </ul>
             </nav>
         </header>
