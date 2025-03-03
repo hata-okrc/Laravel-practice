@@ -10,13 +10,12 @@ use App\Http\Controllers\Auth\LogoutController;
 Route::resource('posts', PostController::class);
 Route::resource('posts.comments', CommentController::class)->only(["destroy", "store"]);
 
-Route::get('create', [RegisterController::class, 'showRegisterPage'])->name("showRegisterForm");
-Route::post('register', [RegisterController::class, 'register'])->name("register");
+Route::get('/create', [RegisterController::class, 'showRegisterForm'])->name("showRegisterForm");
+Route::post('/register', [RegisterController::class, 'register'])->name("register");
 
 
-// ログインのルート
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('showLoginForm');
-Route::post('login', [LoginController::class, 'login'])->name("login");
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('showLoginForm');
+Route::post('/login', [LoginController::class, 'login'])->name("login");
 
-// ログアウトのルート
-Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+

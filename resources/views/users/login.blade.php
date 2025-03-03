@@ -9,7 +9,8 @@
     
     <div class="form-container">
         <h2>🎮 ログイン 🎮</h2>
-        <form action={{ route("login") }}>
+        <form action={{ route("login") }} method="post">
+            @csrf
             <div class="form-group">
                 <label for="username">ユーザー名</label>
                 @error("name")
@@ -34,7 +35,7 @@
                 <input type="password" id="password" name="password" placeholder="パスワードを入力" required>
             </div>
     
-            <button type="submit" class="register-button">登録</button>
+            <button type="submit">ログイン</button>
         </form>
     
             <a href={{ route("posts.index") }} class="cp-link">←戻る</a>

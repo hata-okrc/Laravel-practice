@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\UserRequest;
-
+use App\Models\User;
 class LoginController extends Controller
 {
     public function __construct()
@@ -19,15 +18,19 @@ class LoginController extends Controller
         return view('users.login');
     }
 
-    public function login(UserRequest $req)
+    public function login(Request $req)
     {
         // 1. リクエストのデータを検証する
+        $credentials = $req->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
         // 2. 認証を試みる
         if (Auth::attempt($credentials, $req->filled('remember'))) {
             // 認証に成功したら、セッションを再生成する
             $req->session()->regenerate();
 
-            // ダッシュボードにリダイレクトする
             return redirect()->route("posts.index");
         }
 

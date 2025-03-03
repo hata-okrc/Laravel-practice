@@ -14,8 +14,10 @@
             <h1>みんなの投稿</h1>
             <nav>
                 <ul>
-                   <li><a href={{ route("posts.create") }}>+ 新しい投稿</a></li> 
-                   <li>/</li>
+                    @auth
+                    <li><a href={{ route("posts.create") }}>+ 新しい投稿</a></li> 
+                    <li>/</li>
+                    @endauth
                    <li><a href={{ route("showRegisterForm") }}>ユーザー登録</a></li>  
                    <li>/</li>
                    <li><a href={{ route("showLoginForm") }}>ログイン</a></li>  
