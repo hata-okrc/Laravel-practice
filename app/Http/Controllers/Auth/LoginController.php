@@ -37,6 +37,7 @@ class LoginController extends Controller
         // 認証に失敗した場合は、ログインページにリダイレクトする
         return back()->withErrors([
             'email' => 'ログイン情報が正しくありません。',
-        ])->onlyInput('email');
+        ]);
+        // ->onlyInput('email');
     }
 }
