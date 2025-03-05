@@ -31,6 +31,14 @@
                 @enderror
                 
             </div>
+            <div class="form-group">
+                <label for="file">Select File</label>
+                <input type="file" id="file" name="file">
+                @error("file")
+                <span class="error">{{ $message }}</span>
+                @enderror
+                
+            </div>
             <button type="submit">投稿する</button>
         </form>
         <a href={{ route("posts.index") }} class="cp-link">← 戻る</a>

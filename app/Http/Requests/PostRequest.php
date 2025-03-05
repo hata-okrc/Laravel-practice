@@ -23,7 +23,8 @@ class PostRequest extends FormRequest
     {
         return [
             "title" => ["required", "unique:posts"],
-            "body" => ["required"]
+            "body" => ["required"],
+            'files.*' => ['file','max:10240']// 10MB以下のファイルを許可
         ];
     }
 }
